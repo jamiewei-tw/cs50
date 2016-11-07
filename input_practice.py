@@ -1,8 +1,17 @@
 #!/usr/bin/python3
 Year = input('Year: ')
+if 1 <= Year <= 10000:
+    Year_int = int(Year)
+else:
+    print "Please Enter A Number Between 1 to 10000"
+  
 Month = input('Month:')
-Year_int = int(Year)
-Month_int = int(Month)
+if 1 <= Month <= 12:
+    Month_int = int(Month)
+else:
+    print "Please Enter A Number Between 1 to 12"
+   
+
 calendar = []
 
 def Fcalendar(x,y):
@@ -12,4 +21,3 @@ def Fcalendar(x,y):
 
 Ocalendar = Fcalendar(Year_int, Month_int)
 print(Ocalendar)
-    
