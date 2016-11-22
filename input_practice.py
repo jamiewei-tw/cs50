@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import calendar
 
 while True:
     try:
@@ -25,12 +26,16 @@ while True:
         print("Please Enter A Number")
    
 
-calendar = []
+Fcal = []
 
 def Fcalendar(x,y):
-    calendar.append(x)
-    calendar.append(y)
-    return calendar
-
+    Fcal.append(x)
+    Fcal.append(y)
+    return Fcal
+    
+    
 Ocalendar = Fcalendar(Year, Month)
+cal = calendar.month(Year, Month)
+
 print(Ocalendar)
+print(cal)
