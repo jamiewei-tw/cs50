@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import calendar
-#import datetime
+import datetime
 from datetime import timedelta
 from datetime import date
 
@@ -17,8 +17,6 @@ while True:
     except:
         print("Please Enter A Number")
         
-
-
 while True:
     try:
         Month = input('Month:')
@@ -30,82 +28,42 @@ while True:
             print ("Please Enter A Number Between 1 to 12")
     except:
         print("Please Enter A Number")
-   
+  
+Dt1 = date(iYear,iMonth,1)                
+WDt1 = date.weekday(Dt1) + 1                 # Get the first weekday of the month
 
-if iMonth == 1:
-   Month = "    January "
-   
-elif iMonth == 2:
-   Month = "    Febuary "
+Last_Day = calendar.monthrange(iYear, iMonth)
+iDay = Last_Day[1]
+DtL = date(iYear, iMonth, iDay)        # Get the last date of the month
+WDtL = date.weekday(DtL)+1             # Get the last weekday of the month
 
-elif iMonth == 3:
-   Month = "    March "
-   
-elif iMonth == 4:
-   Month = "    April "
-   
-elif iMonth == 5:
-   Month = "    May "
-   
-elif iMonth == 6:
-   Month = "    June "
-   
-elif iMonth == 7:
-   Month = "    July "
-   
-elif iMonth == 8:
-   Month = "    August "
 
-elif iMonth == 9:
-   Month = "    September "
-
-elif iMonth == 10:
-   Month = "    October "
-
-elif iMonth == 11:
-   Month = "    November "
+Month = calendar.month_name[iMonth] + " " + Year
+print(Month.center(28))
    
-else:
-   Month = "    December "
-
-Month = Month + Year
-print(Month)
-   
-
 print(" SUN MON TUE WED THU FRI SAT")
 
-Dt1 = date(iYear,iMonth,1)
-WDt1 = date.weekday(Dt1) + 1
 
-Weekday_list = ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0']
+Numbers = [7, 1, 2, 3, 4, 5, 6]
+N = 0
+End = ''
+for F in range(0,7):                         # 'F' for the first day of the month
+    if WDt1 == Numbers[F]:
+        print(str(1).rjust(4),end='')
+        N += 1
+        break
+    else:
+        Empty = ''
+        print(Empty.rjust(4),end='')
+        N += 1
 
-def printDate(x):
-    OutPut = ''
-    for i in range (0,x):
-        OutPut = OutPut + str(Weekday_list[i])
-    return OutPut
+for L in range(2, iDay+1):
+    if N == 6:
+        print(str(L).rjust(4))
+        N = 0
         
-
-if WDt1 == 7:
-    Weekday_list[0] = 1
-    
-if WDt1 == 1:
-    Weekday_list[2] = 1
+    else:
+        print(str(L).rjust(4), end='')
+        N += 1
         
-if WDt1 == 2:
-    Weekday_list[4] = 1
-            
-if WDt1 == 3:
-    Weekday_list[6] = 1
-    
-if WDt1 == 4:
-    Weekday_list[8] = 1
-        
-if WDt1 == 5:
-    Weekday_list[10] = 1
-    
-if WDt1 == 6:
-    Weekday_list[12] = 1
-
-PD = printDate(13)
-print(PD)
+print(End)
